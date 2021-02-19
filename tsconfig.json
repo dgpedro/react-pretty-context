@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
+    "declaration": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": false,
+    "strictBindCallApply": true,
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es5",
+      "scripthost",
+      "es6"
+    ],
+    "paths": {
+      "@src": ["index.ts"]
+    },
+  }
+}
