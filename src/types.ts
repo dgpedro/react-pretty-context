@@ -17,6 +17,7 @@ export interface ContextProviderProps<TState> {
 export interface CreateContextParam<TState, TActions extends Actions<TState>> {
     actions: TActions;
     defaultState: TState;
+    displayName?: string;
 }
 
 export type ActionsHook<TActions extends ActionsDispatcherObject> = () => ActionsDispatcher<TActions>;

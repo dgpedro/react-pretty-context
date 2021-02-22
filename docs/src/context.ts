@@ -50,4 +50,5 @@ export const {
 } = createContext({
     actions,
     defaultState,
+    displayName: "ShippingDetails",
 });

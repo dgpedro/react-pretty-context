@@ -2,7 +2,7 @@ import React from "react";
 import { v4 as uuid } from "uuid";
 
 import { Actions, ActionsDispatcherObject, ActionsHook, StateHook, CreateContextParam, ContextProviderProps } from "./types";
-import { ContextProvider as ContextProviderComponent } from "./context-provider";
+import { ContextManager } from "./context-manager";
 import { useActionsBuilder, useContextSelectorBuilder } from "./hooks";
 
 interface ContextProviderReturn<TActions extends ActionsDispatcherObject, TState> {
@@ -14,14 +14,19 @@ interface ContextProviderReturn<TActions extends ActionsDispatcherObject, TState
 export function createContext<TState, TActions extends Actions<TState>>({
     actions,
     defaultState,
+    displayName,
 }: CreateContextParam<TState, TActions>): ContextProviderReturn<TActions, TState> {
     const id = uuid();
+
+    (ContextManager as React.FC).defaultProps = {
+        actions,
+        id,
+        initialState: defaultState,
+        displayName,
+    };
+
     return {
-        ContextProvider: ({ children, initialState }) => (
-            <ContextProviderComponent actions={actions} id={id} initialState={initialState || defaultState}>
-                {children}
-            </ContextProviderComponent>
-        ),
+        ContextProvider: ContextManager,
         useActions: useActionsBuilder<typeof actions>(id),
         useContextSelector: useContextSelectorBuilder(id),
     };
