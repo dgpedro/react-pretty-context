@@ -19,9 +19,13 @@ export function useStateManager<TState>({ actions, initialState }: StateManager<
     );
 
     const actionsDispatcher = useMemo(() => {
-        const actionsObj: ActionsDispatcher<typeof actions> = {};
+        const dispatcher: ActionsDispatcher<typeof actions> = {};
+        if (!actions) {
+            return dispatcher;
+        }
+
         Object.keys(actions).forEach((actionKey) => {
-            actionsObj[actionKey] = (...args: unknown[]) => {
+            dispatcher[actionKey] = (...args: unknown[]) => {
                 if (unmounted.current) {
                     return;
                 }
@@ -29,7 +33,7 @@ export function useStateManager<TState>({ actions, initialState }: StateManager<
                 setState((prevState) => actions[actionKey](prevState, ...args));
             };
         });
-        return actionsObj;
+        return dispatcher;
     }, [actions]);
 
     return {
