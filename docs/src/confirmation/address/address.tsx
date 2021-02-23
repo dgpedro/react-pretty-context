@@ -2,12 +2,13 @@ import React from "react";
 
 import { Street } from "./street";
 import { City } from "./city";
+import { HighlightPanel } from "../../highlight-panel";
 
 export const Address: React.FC = () => {
     return (
-        <div>
+        <HighlightPanel title="Address">
             <Street />
             <City />
-        </div>
+        </HighlightPanel>
     );
 };

@@ -18,13 +18,13 @@ interface State {
 
 const defaultState: State = {
     address: {
-        city: "City",
-        street: "Street",
+        city: "",
+        street: "",
     },
-    email: "email@email.com",
+    email: "",
     personal: {
-        lastName: "Last name",
-        name: "name",
+        lastName: "",
+        name: "",
     },
 };
 

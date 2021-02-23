@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useActions, useContextSelector } from "../../context";
+import { HighlightPanel } from "../../highlight-panel";
 
 export const City: React.FC = () => {
     const city = useContextSelector((state) => state.address.city);
@@ -10,8 +11,8 @@ export const City: React.FC = () => {
         setAddress({ city: ev.target.value });
     };
     return (
-        <div>
+        <HighlightPanel title="City">
             City: <input type="text" value={city} onChange={onChange} />
-        </div>
+        </HighlightPanel>
     );
 };
