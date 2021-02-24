@@ -19,13 +19,12 @@ export function useActionsBuilder<TActions extends ActionsDispatcherObject>(id: 
     };
 }
 
-export function useContextSelectorBuilder<TState>(id: string) {
-    return function useContextSelector<TSelectedState>(selectorFn: (state: TState) => TSelectedState) {
+export function useContextSelectorBuilder<TContext>(id: string) {
+    return function useContextSelector<TSelectedContext>(selectorFn: (context: TContext) => TSelectedContext) {
         if (!contexts[id]) {
             noContextError(id);
             return null;
         }
-        const selectedState = useContextSelectorHook(contexts[id], ({ state }) => selectorFn(state));
-        return selectedState;
+        return useContextSelectorHook(contexts[id], ({ context }) => selectorFn(context));
     };
 }

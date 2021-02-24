@@ -2,13 +2,13 @@ import { useEffect, useState, useRef, useMemo } from "react";
 
 import { ActionsDispatcher, Actions } from "./types";
 
-interface StateManager<TState> {
-    initialState: TState;
-    actions: Actions<TState>;
+interface StateManager<TContext> {
+    initialContext: TContext;
+    actions: Actions<TContext>;
 }
 
-export function useStateManager<TState>({ actions, initialState }: StateManager<TState>) {
-    const [state, setState] = useState(initialState);
+export function useStateManager<TContext>({ actions, initialContext }: StateManager<TContext>) {
+    const [state, setState] = useState(initialContext);
     const unmounted = useRef(false);
 
     useEffect(
@@ -38,6 +38,6 @@ export function useStateManager<TState>({ actions, initialState }: StateManager<
 
     return {
         actionsDispatcher,
-        state,
+        context: state,
     };
 }

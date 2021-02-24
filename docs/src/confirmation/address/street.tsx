@@ -4,7 +4,7 @@ import { useContextSelector } from "../../context";
 import { HighlightPanel } from "../../highlight-panel";
 
 export const Street: React.FC = () => {
-    const street = useContextSelector((state) => state.address.street);
+    const street = useContextSelector((context) => context.address.street);
     return (
         <HighlightPanel title="Street">
             Street: {street}

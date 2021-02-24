@@ -1,8 +1,8 @@
 import { Context as ContextSelector } from "use-context-selector";
 import { ActionsDispatcherObject, ActionsDispatcher } from "./types";
 
-export interface Context<TState, TActions extends ActionsDispatcherObject> {
-    state: TState;
+export interface Context<TContext, TActions extends ActionsDispatcherObject> {
+    context: TContext;
     actions: ActionsDispatcher<TActions>;
 }
 

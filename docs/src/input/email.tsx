@@ -4,7 +4,7 @@ import { useActions, useContextSelector } from "../context";
 import { HighlightPanel } from "../highlight-panel";
 
 export const Email: React.FC = () => {
-    const email = useContextSelector((state) => state.email);
+    const email = useContextSelector((context) => context.email);
     const { setEmail } = useActions();
 
     const onChange = (ev: React.ChangeEvent<HTMLInputElement>) => {

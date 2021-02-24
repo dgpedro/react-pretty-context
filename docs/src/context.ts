@@ -10,13 +10,13 @@ interface Address {
     city: string;
 }
 
-interface State {
+interface Context {
     personal: PersonalDetails;
     address: Address;
     email: string;
 }
 
-const defaultState: State = {
+const defaultContext: Context = {
     address: {
         city: "",
         street: "",
@@ -29,17 +29,17 @@ const defaultState: State = {
 };
 
 const actions = {
-    setName: (state: State, name: string) => {
-        return { ...state, personal: { ...state.personal, name } };
+    setName: (context: Context, name: string) => {
+        return { ...context, personal: { ...context.personal, name } };
     },
-    setLastName: (state: State, lastName: string) => {
-        return { ...state, personal: { ...state.personal, lastName } };
+    setLastName: (context: Context, lastName: string) => {
+        return { ...context, personal: { ...context.personal, lastName } };
     },
-    setAddress: (state: State, address: Partial<Address>) => {
-        return { ...state, address: { ...state.address, ...address } };
+    setAddress: (context: Context, address: Partial<Address>) => {
+        return { ...context, address: { ...context.address, ...address } };
     },
-    setEmail: (state: State, email: string) => {
-        return { ...state, email };
+    setEmail: (context: Context, email: string) => {
+        return { ...context, email };
     },
 };
 
@@ -49,6 +49,6 @@ export const {
     ContextProvider,
 } = createContext({
     actions,
-    defaultState,
+    defaultContext,
     displayName: "ShippingDetails",
 });

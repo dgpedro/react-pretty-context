@@ -4,7 +4,7 @@ import { useContextSelector } from "../../context";
 import { HighlightPanel } from "../../highlight-panel";
 
 export const LastName: React.FC = () => {
-    const lastName = useContextSelector((state) => state.personal.lastName);
+    const lastName = useContextSelector((context) => context.personal.lastName);
     return (
         <HighlightPanel title="LastName">
             Last name: {lastName}

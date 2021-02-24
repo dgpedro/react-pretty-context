@@ -4,7 +4,7 @@ import { useActions, useContextSelector } from "../../context";
 import { HighlightPanel } from "../../highlight-panel";
 
 export const Street: React.FC = () => {
-    const street = useContextSelector((state) => state.address.street);
+    const street = useContextSelector((context) => context.address.street);
     const { setAddress } = useActions();
 
     const onChange = (ev: React.ChangeEvent<HTMLInputElement>) => {

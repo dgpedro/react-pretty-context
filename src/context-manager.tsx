@@ -5,20 +5,21 @@ import { Actions } from "./types";
 import { contexts, Context } from "./contexts";
 import { useStateManager } from "./use-state-manager";
 
-interface ContextManagerProps<TState> {
+export interface ContextManagerProps<TContext> {
     id: string;
-    initialState: TState;
-    actions: Actions<TState>;
+    initialContext: TContext;
+    actions: Actions<TContext>;
     displayName?: string;
 }
 
-export function ContextManager<TState>({
+export function ContextManager<TContext>({
     actions,
     children,
     displayName,
     id,
-    initialState,
-}: React.PropsWithChildren<ContextManagerProps<TState>>) {
+    initialContext,
+}: React.PropsWithChildren<ContextManagerProps<TContext>>)
+     {
     useEffect(
         () => () => {
             delete contexts[id];
@@ -26,22 +27,22 @@ export function ContextManager<TState>({
         [id],
     );
 
-    const { actionsDispatcher, state } = useStateManager({
+    const { actionsDispatcher, context } = useStateManager({
         actions,
-        initialState,
+        initialContext,
     });
 
     if (!contexts[id]) {
         contexts[id] = createContext({
             actions: null,
-            state: null,
+            context: null,
         });
     }
 
     const Context = contexts[id];
-    const contextValue: Context<TState, Actions<TState>> = {
+    const contextValue: Context<TContext, Actions<TContext>> = {
         actions: actionsDispatcher,
-        state,
+        context,
     };
 
     Context.displayName = displayName;
