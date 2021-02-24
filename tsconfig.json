@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "declaration": true,
     "esModuleInterop": true,
     "importHelpers": true,
@@ -22,7 +22,8 @@
       "es6"
     ],
     "paths": {
-      "@src": ["index.ts"]
+      "@src": ["src/index.ts"],
+      "test-utils": ["__tests__/utils/test-utils.ts"]
     },
   }
 }
