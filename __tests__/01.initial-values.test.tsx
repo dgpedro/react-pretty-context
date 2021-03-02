@@ -1,8 +1,7 @@
 import React from "react";
 import { render } from "test-utils";
 
-import { NamesProvider } from "./names/config";
-import { defaultContext } from "./names/context-state";
+import { NamesProvider,defaultContext } from "./names/config";
 import { NamesContainer } from "./names/names-container";
 
 describe("Initial values", () => {
