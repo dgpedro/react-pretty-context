@@ -15,6 +15,10 @@ const Main = styled.div`
     font-size: 12px;
 `;
 
+const Hr = styled.hr`
+    margin: 20px 0;
+`;
+
 export const App = () => {
     return (
         <Main>
@@ -23,6 +27,7 @@ export const App = () => {
                     <PersonalDetails />
                     <Address />
                     <Email />
+                    <Hr />
                     <PersonalDetailsConf />
                     <AddressConf />
                     <EmailConf />

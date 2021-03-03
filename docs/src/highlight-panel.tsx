@@ -19,10 +19,10 @@ interface PanelProps {
 }
 
 const Panel = styled.div<PanelProps>`
-    border: 1px solid black;
+    border: 1px dashed black;
     position: relative;
-    padding: 20px;
-    margin: 5px;
+    padding: 10px;
+    margin: 10px 0;
     ${props => props.animate ? animation : null}
 `;
 
