@@ -9,9 +9,8 @@
     "clean": "rimraf docs/dist",
     "build": "npm run clean && webpack --color --mode production",
     "build-dev": "npm run clean && webpack --color --mode development",
-    "prepare": "rimraf build && npm run tsc && npm run polyfill",
+    "prepare": "rimraf build && npm run tsc",
     "tsc": "tsc -p tsconfig-esm.json && tsc -p tsconfig-cjs.json",
-    "polyfill": "tsc -p tsconfig-polyfill.json",
     "prestart": "npm run clean",
     "start": "webpack-dev-server --mode development",
     "test": "jest"
