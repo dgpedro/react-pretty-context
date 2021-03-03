@@ -1,14 +1,16 @@
 import React from "react";
 import { render } from "test-utils";
 
-import { NamesProvider,defaultContext } from "./names/config";
-import { NamesContainer } from "./names/names-container";
+import { NamesProvider, defaultContext, NamesContainer, FirstName, LastName } from "./names";
 
 describe("Initial values", () => {
     it("Default context", () => {
         const { getByTestId } = render(
             <NamesProvider>
-                <NamesContainer />
+                <NamesContainer>
+                    <FirstName />
+                    <LastName />
+                </NamesContainer>
             </NamesProvider>
         );
 
@@ -22,7 +24,10 @@ describe("Initial values", () => {
     it("Initial context", () => {
         const { getByTestId } = render(
             <NamesProvider initialContext={{ firstName: "Initial first name", lastName: "Initial last name" }}>
-                <NamesContainer />
+                <NamesContainer>
+                    <FirstName />
+                    <LastName />
+                </NamesContainer>
             </NamesProvider>
         );
 
@@ -37,9 +42,13 @@ describe("Initial values", () => {
         const { getAllByTestId } = render(
             <NamesProvider>
                 <NamesProvider initialContext={{ firstName: "Initial first name", lastName: "Initial last name" }}>
-                    <NamesContainer />
+                    <NamesContainer>
+                        <FirstName />
+                        <LastName />
+                    </NamesContainer>
                 </NamesProvider>
-                <NamesContainer />
+                <FirstName />
+                <LastName />
             </NamesProvider>
         );
 

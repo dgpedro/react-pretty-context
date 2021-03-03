@@ -1,9 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "test-utils";
 
-import { NamesProvider } from "./names/config";
-import { NamesContainer } from "./names/names-container";
-import { NamesUpdater } from "./names/names-updater";
+import { NamesProvider, NamesContainer, NamesUpdater, FirstName, LastName } from "./names";
 
 import { AddressProvider } from "./address/config";
 import { AddressContainer } from "./address/address-container";
@@ -12,7 +10,10 @@ describe("Actions dispatcher", () => {
     it("Single action, one value", () => {
         const { getByTestId, getByRole } = render(
             <NamesProvider initialContext={{ firstName: "first name", lastName: "last name" }}>
-                <NamesContainer />
+                <NamesContainer>
+                    <FirstName />
+                    <LastName />
+                </NamesContainer>
                 <NamesUpdater />
             </NamesProvider>
         );
@@ -30,7 +31,10 @@ describe("Actions dispatcher", () => {
     it("Single action, multiple values", () => {
         const { getByTestId, getByRole } = render(
             <NamesProvider initialContext={{ firstName: "first name", lastName: "last name" }}>
-                <NamesContainer />
+                <NamesContainer>
+                    <FirstName />
+                    <LastName />
+                </NamesContainer>
                 <NamesUpdater />
             </NamesProvider>
         );
@@ -48,7 +52,10 @@ describe("Actions dispatcher", () => {
     it("Multiple actions", () => {
         const { getByTestId, getByRole } = render(
             <NamesProvider>
-                <NamesContainer />
+                <NamesContainer>
+                    <FirstName />
+                    <LastName />
+                </NamesContainer>
                 <NamesUpdater />
             </NamesProvider>
         );
@@ -69,13 +76,22 @@ describe("Actions dispatcher", () => {
         const { getAllByTestId, getByRole } = render(
             <>
                 <NamesProvider initialContext={{ firstName: "first name 1", lastName: "last name 1" }}>
-                    <NamesContainer />
+                    <NamesContainer>
+                        <FirstName />
+                        <LastName />
+                    </NamesContainer>
                 </NamesProvider>
                 <NamesProvider initialContext={{ firstName: "first name 2", lastName: "last name 2" }}>
-                    <NamesContainer />
+                    <NamesContainer>
+                        <FirstName />
+                        <LastName />
+                    </NamesContainer>
                     <NamesUpdater />
                     <NamesProvider initialContext={{ firstName: "first name 3", lastName: "last name 3" }}>
-                        <NamesContainer />
+                        <NamesContainer>
+                            <FirstName />
+                            <LastName />
+                        </NamesContainer>
                     </NamesProvider>
                 </NamesProvider>
             </>
@@ -101,7 +117,10 @@ describe("Actions dispatcher", () => {
         const { getByTestId, getByRole } = render(
             <NamesProvider>
                 <AddressProvider initialContext={{ street: "Initial street", postalCode: "Initial postal code" }}>
-                    <NamesContainer />
+                    <NamesContainer>
+                        <FirstName />
+                        <LastName />
+                    </NamesContainer>
                     <NamesUpdater />
                     <AddressContainer />
                 </AddressProvider>

@@ -17,11 +17,18 @@ export const NamesUpdater: React.FC = () => {
         setNames({ firstName: "Updated first name", lastName: "Updated last name" });
     };
 
+    const onUpdateSequentially = () => {
+        onFirstNameUpdate();
+        onLastNameUpdate();
+        onNamesUpdate();
+    };
+
     return (
         <div>
             <button onClick={onFirstNameUpdate} type="button">Update first name</button>
             <button onClick={onLastNameUpdate} type="button">Update last name</button>
             <button onClick={onNamesUpdate} type="button">Update names</button>
+            <button onClick={onUpdateSequentially} type="button">Update sequentially</button>
         </div>
     );
 };

@@ -1,13 +1,12 @@
 import React from "react";
 
-import { FirstName } from "./first-name";
-import { LastName } from "./last-name";
+import { UpdateCallback, UpdateCallbackProps } from "./update-callback";
 
-export const NamesContainer = () => {
+export const NamesContainer: React.FC<UpdateCallbackProps> = ({ children, ...props }) => {
     return (
         <div>
-            <FirstName />
-            <LastName />
+            <UpdateCallback {...props} />
+            {children}
         </div>
     );
 };
