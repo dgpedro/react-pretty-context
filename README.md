@@ -1,7 +1,7 @@
 # react-pretty-context
 
 Simple and easy way to manage react context state.
-This package makes use of [use-context-selector](https://github.com/dai-shi/use-context-selector) and allows context state updates by dispatching defined actions.
+This package makes use of [use-context-selector](https://github.com/dai-shi/use-context-selector#use-context-selector) and allows context state updates by dispatching defined actions.
 
 ## Install
 
