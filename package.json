@@ -6,7 +6,7 @@
   "module": "./build/esm/index.js",
   "sideEffects": false,
   "scripts": {
-    "clean": "rimraf docs/dist",
+    "clean": "rimraf docs/index.html docs/dist",
     "build": "npm run clean && webpack --color --mode production",
     "build-dev": "npm run clean && webpack --color --mode development",
     "prepare": "rimraf build && npm run tsc",

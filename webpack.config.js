@@ -34,6 +34,7 @@ module.exports = (env, options) => {
         plugins: [
             new HtmlWebpackPlugin({
                 template: 'docs/src/index.html',
+                filename: path.resolve(__dirname, "docs", "index.html"),
             }),
             new ForkTsCheckerWebpackPlugin(),
         ],
