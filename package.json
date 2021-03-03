@@ -23,10 +23,10 @@
     "react",
     "context",
     "react-context",
-    "selector",
-    "use-context-selector",
+    "hooks",
+    "context-selector",
     "actions",
-    "actions-dispatcher"
+    "dispatcher"
   ],
   "author": "Diogo Pedro",
   "license": "MIT",

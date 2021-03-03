@@ -7,6 +7,7 @@ import { useActionsBuilder, useContextSelectorBuilder } from "./hooks";
 
 interface ContextProviderReturn<TActions extends ActionsDispatcherObject, TContext> {
     ContextProvider: React.FC<ContextProviderProps<TContext>>;
+    defaultContext: TContext;
     useActions: ActionsHook<TActions>;
     useContextSelector: SelectorHook<TContext>;
 }
@@ -29,6 +30,7 @@ export function createContext<TContext, TActions extends Actions<TContext>>({
                 {children}
             </ContextManager>
         ),
+        defaultContext,
         useActions: useActionsBuilder<typeof actions>(id),
         useContextSelector: useContextSelectorBuilder(id),
     };

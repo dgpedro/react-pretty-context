@@ -16,7 +16,7 @@ interface Context {
     email: string;
 }
 
-const defaultContext: Context = {
+const initialContext: Context = {
     address: {
         city: "",
         street: "",
@@ -44,11 +44,12 @@ const actions = {
 };
 
 export const {
+    ContextProvider,
+    defaultContext,
     useActions,
     useContextSelector,
-    ContextProvider,
 } = createContext({
     actions,
-    defaultContext,
+    defaultContext: initialContext,
     displayName: "ShippingDetails",
 });
