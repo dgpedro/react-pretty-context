@@ -42,7 +42,7 @@ module.exports = (env, options) => {
             compress: true,
             overlay: true,
             port: 8080,
-            contentBase: path.join(__dirname, 'docs', 'dist'),
+            contentBase: path.join(__dirname, 'docs'),
             publicPath: "/react-pretty-context/",
             writeToDisk: true,
             historyApiFallback: {
